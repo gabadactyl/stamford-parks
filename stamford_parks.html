@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stamford Parks</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <style>
         #map {
             height: 500px;
@@ -15,211 +16,64 @@
 </head>
 <body>
 
-<!-- Google Maps API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=MAPSMAPSMAPKEY"></script>
-
+<div id="map"></div>
 <script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 41.0534, lng: -73.5387},
-            zoom: 12
-        });
+    var map = L.map('map').setView([41.0534, -73.5387], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-        var marker_0 = new google.maps.Marker({
-            position: {lat: 41.0635594, lng: -73.54837},
-            map: map,
-            title: ' Scalzi Park'
-        });
-
-        var infoWindow_0 = new google.maps.InfoWindow({
-            content: '<strong> Scalzi Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)'
-        });
-
-        marker_0.addListener('click', function() {
-            infoWindow_0.open(map, marker_0);
-        });
+        L.marker([41.0635594, -73.54837]).addTo(map)
+            .bindPopup('<strong> Scalzi Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)');
     
 
-        var marker_1 = new google.maps.Marker({
-            position: {lat: 41.0472652, lng: -73.5016844},
-            map: map,
-            title: ' Cove Island Park '
-        });
-
-        var infoWindow_1 = new google.maps.InfoWindow({
-            content: '<strong> Cove Island Park </strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities'
-        });
-
-        marker_1.addListener('click', function() {
-            infoWindow_1.open(map, marker_1);
-        });
+        L.marker([41.0472652, -73.5016844]).addTo(map)
+            .bindPopup('<strong> Cove Island Park </strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities');
     
 
-        var marker_2 = new google.maps.Marker({
-            position: {lat: 41.0435152, lng: -73.5203923},
-            map: map,
-            title: ' Cummings Park '
-        });
-
-        var infoWindow_2 = new google.maps.InfoWindow({
-            content: '<strong> Cummings Park </strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities'
-        });
-
-        marker_2.addListener('click', function() {
-            infoWindow_2.open(map, marker_2);
-        });
+        L.marker([41.0435152, -73.5203923]).addTo(map)
+            .bindPopup('<strong> Cummings Park </strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities');
     
 
-        var marker_3 = new google.maps.Marker({
-            position: {lat: 41.0329221, lng: -73.5465295},
-            map: map,
-            title: ' John J. Boccuzzi Park'
-        });
-
-        var infoWindow_3 = new google.maps.InfoWindow({
-            content: '<strong> John J. Boccuzzi Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities'
-        });
-
-        marker_3.addListener('click', function() {
-            infoWindow_3.open(map, marker_3);
-        });
+        L.marker([41.0329221, -73.5465295]).addTo(map)
+            .bindPopup('<strong> John J. Boccuzzi Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities');
     
 
-        var marker_4 = new google.maps.Marker({
-            position: {lat: 41.0350585, lng: -73.5380629},
-            map: map,
-            title: ' Kosciuszko Park'
-        });
-
-        var infoWindow_4 = new google.maps.InfoWindow({
-            content: '<strong> Kosciuszko Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities'
-        });
-
-        marker_4.addListener('click', function() {
-            infoWindow_4.open(map, marker_4);
-        });
+        L.marker([41.0350585, -73.5380629]).addTo(map)
+            .bindPopup('<strong> Kosciuszko Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities');
     
 
-        var marker_5 = new google.maps.Marker({
-            position: {lat: 41.1746038, lng: -73.5597809},
-            map: map,
-            title: 'Dorothy Heroy Complex'
-        });
-
-        var infoWindow_5 = new google.maps.InfoWindow({
-            content: '<strong>Dorothy Heroy Complex</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities'
-        });
-
-        marker_5.addListener('click', function() {
-            infoWindow_5.open(map, marker_5);
-        });
+        L.marker([41.1746038, -73.5597809]).addTo(map)
+            .bindPopup('<strong>Dorothy Heroy Complex</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities');
     
 
-        var marker_6 = new google.maps.Marker({
-            position: {lat: 41.0756545, lng: -73.532541},
-            map: map,
-            title: ' Barrett Park'
-        });
-
-        var infoWindow_6 = new google.maps.InfoWindow({
-            content: '<strong> Barrett Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)'
-        });
-
-        marker_6.addListener('click', function() {
-            infoWindow_6.open(map, marker_6);
-        });
+        L.marker([41.0756545, -73.532541]).addTo(map)
+            .bindPopup('<strong> Barrett Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)');
     
 
-        var marker_7 = new google.maps.Marker({
-            position: {lat: 41.1256191, lng: -73.5713752},
-            map: map,
-            title: ' Chestnut Hill Park'
-        });
-
-        var infoWindow_7 = new google.maps.InfoWindow({
-            content: '<strong> Chestnut Hill Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)'
-        });
-
-        marker_7.addListener('click', function() {
-            infoWindow_7.open(map, marker_7);
-        });
+        L.marker([41.1256191, -73.5713752]).addTo(map)
+            .bindPopup('<strong> Chestnut Hill Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)');
     
 
-        var marker_8 = new google.maps.Marker({
-            position: {lat: 41.0534302, lng: -73.5387341},
-            map: map,
-            title: 'Edward Hunt Complex'
-        });
-
-        var infoWindow_8 = new google.maps.InfoWindow({
-            content: '<strong>Edward Hunt Complex</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)'
-        });
-
-        marker_8.addListener('click', function() {
-            infoWindow_8.open(map, marker_8);
-        });
+        L.marker([41.0534302, -73.5387341]).addTo(map)
+            .bindPopup('<strong>Edward Hunt Complex</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)');
     
 
-        var marker_9 = new google.maps.Marker({
-            position: {lat: 41.0539552, lng: -73.5561},
-            map: map,
-            title: ' Lione Park'
-        });
-
-        var infoWindow_9 = new google.maps.InfoWindow({
-            content: '<strong> Lione Park</strong><br>Active Recreation, Citizen Amenities (restrooms, parking, concessions)'
-        });
-
-        marker_9.addListener('click', function() {
-            infoWindow_9.open(map, marker_9);
-        });
+        L.marker([41.0539552, -73.5561]).addTo(map)
+            .bindPopup('<strong> Lione Park</strong><br>Active Recreation, Citizen Amenities (restrooms, parking, concessions)');
     
 
-        var marker_10 = new google.maps.Marker({
-            position: {lat: 41.0818597, lng: -73.5828792},
-            map: map,
-            title: 'Mianus River State Park'
-        });
-
-        var infoWindow_10 = new google.maps.InfoWindow({
-            content: '<strong>Mianus River State Park</strong><br>Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities'
-        });
-
-        marker_10.addListener('click', function() {
-            infoWindow_10.open(map, marker_10);
-        });
+        L.marker([41.0818597, -73.5828792]).addTo(map)
+            .bindPopup('<strong>Mianus River State Park</strong><br>Passive Recreation, Citizen Amenities (restrooms, parking, concessions), Water Amenities');
     
 
-        var marker_11 = new google.maps.Marker({
-            position: {lat: 41.1395922, lng: -73.5590447},
-            map: map,
-            title: 'Scofieldtown Park'
-        });
-
-        var infoWindow_11 = new google.maps.InfoWindow({
-            content: '<strong>Scofieldtown Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)'
-        });
-
-        marker_11.addListener('click', function() {
-            infoWindow_11.open(map, marker_11);
-        });
+        L.marker([41.1395922, -73.5590447]).addTo(map)
+            .bindPopup('<strong>Scofieldtown Park</strong><br>Active Recreation, Passive Recreation, Citizen Amenities (restrooms, parking, concessions)');
     
 
-        var marker_12 = new google.maps.Marker({
-            position: {lat: 41.038398, lng: -73.5224765},
-            map: map,
-            title: ' West Beach'
-        });
-
-        var infoWindow_12 = new google.maps.InfoWindow({
-            content: '<strong> West Beach</strong><br>Citizen Amenities (restrooms, parking, concessions), Water Amenities'
-        });
-
-        marker_12.addListener('click', function() {
-            infoWindow_12.open(map, marker_12);
-        });
+        L.marker([41.038398, -73.5224765]).addTo(map)
+            .bindPopup('<strong> West Beach</strong><br>Citizen Amenities (restrooms, parking, concessions), Water Amenities');
     
 </script>
-<div id='map'></div>
 </body>
 </html>
